@@ -1,4 +1,4 @@
-name: Push and deploy backend to vm
+name: Push and deploy frontend(web) to vm
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
        context: .
-       file: ./dockerfile/Dockerfile.backend
+       file: ./dockerfile/Dockerfile.web
 
        push: true
        tags: jitenderrana/monorepo:${{ github.sha }}

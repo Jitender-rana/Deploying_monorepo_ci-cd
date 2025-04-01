@@ -27,7 +27,7 @@ jobs:
        file: ./dockerfile/Dockerfile.backend
 
        push: true
-       tags: monorepo/todo-backend:${{ github.sha }}
+       tags: jitenderrana/monorepo:${{ github.sha }}
 
 
           
