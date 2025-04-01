@@ -36,6 +36,7 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
+            who iam
             docker stop user_backend && docker run --name user_backend -d -p 8080:8080 100xdevs/todo-app-backend:${{ github.sha }}
 
           
