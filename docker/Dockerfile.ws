@@ -8,7 +8,7 @@ COPY ./package.json ./package.json
 COPY ./apps/web ./apps/web
 
 RUN bun install
-RUN bun run db:migrate
+RUN bun run db:generate
 EXPOSE 3000
 
 CMD ["bun","run","start:ws"]

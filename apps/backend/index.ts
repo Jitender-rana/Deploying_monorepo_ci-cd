@@ -1,6 +1,5 @@
 import express from "express";
 import { prismaClient } from "db/client";
-
 const app = express();
 
 app.use(express.json());
@@ -8,7 +7,7 @@ app.use(express.json());
 app.get("/users", (req, res) => {
   prismaClient.user.findMany()
     .then(users => {
-      res.json(users);
+      res.json({users});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -37,4 +36,4 @@ app.post("/user", (req, res) => {
     });
 })
 
-app.listen(3001);
+app.listen(8080);
