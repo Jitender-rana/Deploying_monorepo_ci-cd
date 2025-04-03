@@ -29,5 +29,15 @@ jobs:
        push: true
        tags: jitenderrana/monorepo:${{ github.sha }}
 
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+            docker stop user_backend && docker run --name user_backend -d -p 8080:8080 100xdevs/todo-app-backend:${{ github.sha }}
+
 
           
